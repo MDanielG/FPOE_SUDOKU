@@ -21,7 +21,7 @@ public class SudokuWelcomeStage extends Stage {
      */
     private SudokuWelcomeStage() throws IOException {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/example/demosudoku/sudoku-welcome-view.fxml")
+                getClass().getResource("/com/example/fpoe_sudoku/sudoku-welcome-view.fxml")
         );
         Parent root = loader.load();
 
@@ -30,7 +30,7 @@ public class SudokuWelcomeStage extends Stage {
         setTitle("Sudoku");
         setResizable(false);
         getIcons().add(
-                new Image(String.valueOf(getClass().getResource("/com/example/demosudoku/favicon.png")))
+                new Image(String.valueOf(getClass().getResource("/com/example/fpoe_sudoku/SUDOKULOGO.png")))
         );
         show();
     }

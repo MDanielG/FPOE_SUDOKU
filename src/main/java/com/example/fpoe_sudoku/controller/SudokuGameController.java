@@ -1,10 +1,12 @@
 package com.example.fpoe_sudoku.controller;
 
-
 import com.example.fpoe_sudoku.model.game.Game;
 import com.example.fpoe_sudoku.model.user.User;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.net.URL;
@@ -12,7 +14,8 @@ import java.util.ResourceBundle;
 
 /**
  * Controller for the main Sudoku game view (sudoku-game-view.fxml).
- * This class is responsible for initializing and managing the game board's UI.
+ * This class is responsible for initializing and managing the game board's UI
+ * and handling user interactions such as help requests.
  */
 public class SudokuGameController implements Initializable {
 
@@ -21,6 +24,18 @@ public class SudokuGameController implements Initializable {
      */
     @FXML
     private GridPane boardGridPane;
+
+    /**
+     * Button to request help/hints from the game.
+     */
+    @FXML
+    private Button helpButton;
+
+    /**
+     * Label to display the player's nickname.
+     */
+    @FXML
+    private Label playerLabel;
 
     private Game game;
     private User user;
@@ -41,11 +56,28 @@ public class SudokuGameController implements Initializable {
 
     /**
      * Sets the user for the current game session. This method is called by the
-     * welcome controller to pass the user's data.
+     * welcome controller to pass the user's data. It also updates the UI to
+     * display the player's nickname.
      *
      * @param user The user object containing player information, such as the nickname.
      */
     public void setUser(User user) {
         this.user = user;
+        if (playerLabel != null && user != null) {
+            playerLabel.setText("Jugador: " + user.getNickname());
+        }
+    }
+
+    /**
+     * Handles the help button action. Requests a hint from the game
+     * to assist the player. Implements HU-4 (help feature).
+     *
+     * @param event The action event triggered by clicking the help button.
+     */
+    @FXML
+    void handleHelp(ActionEvent event) {
+        if (game != null) {
+            game.provideHint();
+        }
     }
 }

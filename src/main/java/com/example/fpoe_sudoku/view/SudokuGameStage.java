@@ -23,7 +23,7 @@ public class SudokuGameStage extends Stage {
      */
     private SudokuGameStage() throws IOException {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/example/demosudoku/sudoku-game-view.fxml")
+                getClass().getResource("/com/example/fpoe_sudoku/sudoku-game-view.fxml")
         );
         Parent root = loader.load();
         controller = loader.getController();
@@ -33,7 +33,7 @@ public class SudokuGameStage extends Stage {
         setTitle("Sudoku");
         setResizable(false);
         getIcons().add(
-                new Image(String.valueOf(getClass().getResource("/com/example/demosudoku/favicon.png")))
+                new Image(String.valueOf(getClass().getResource("/com/example/fpoe_sudoku/SUDOKULOGO.png")))
         );
         show();
     }
@@ -48,6 +48,7 @@ public class SudokuGameStage extends Stage {
     }
 
     /**
+     * Inner static class to hold the singleton instance (lazy initialization).
      * Inner static class to hold the singleton instance (lazy initialization).
      */
     private static class Holder {
