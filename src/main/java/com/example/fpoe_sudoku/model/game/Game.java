@@ -1,6 +1,6 @@
 package com.example.fpoe_sudoku.model.game;
 
-import com.example.demosudoku.utils.AlertBox;
+import com.example.fpoe_sudoku.utils.AlertBox;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
