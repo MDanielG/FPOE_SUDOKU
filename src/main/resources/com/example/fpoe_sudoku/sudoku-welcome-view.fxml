@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #142850;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fpoe_sudoku.controller.SudokuWelcomeController">
-   <children>
-      <Button layoutX="144.0" layoutY="245.0" mnemonicParsing="false" onAction="#handlePlay" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: #00A8CC;" text="Jugar" textFill="#142850" AnchorPane.bottomAnchor="128.0">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fpoe_sudoku.controller.SudokuWelcomeController">
+
+    <children>
+        <ImageView fitHeight="600" fitWidth="600" opacity="0.2" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@uppermoon1.jpg" />
+            </image>
+        </ImageView>
+        <Button alignment="CENTER" contentDisplay="TOP" layoutX="150.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePlay" prefHeight="100.0" prefWidth="115.0" style="-fx-background-color: #A31818; -fx-background-radius: 15; -fx-border-color: #300D0D; -fx-border-radius: 15; -fx-border-width: 2; -fx-cursor: HAND; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" text="Jugar" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="128.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="416.0">
          <font>
-            <Font name="Berlin Sans FB" size="18.0" />
+            <Font name="Viner Hand ITC" size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="143.0" layoutY="126.0" text="Sudoku" textFill="#00a8cc" AnchorPane.topAnchor="128.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="126.0" text=" Sudoku Slayer" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="350.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0">
          <font>
-            <Font name="Berlin Sans FB" size="36.0" />
+            <Font name="Viner Hand ITC" size="60.0" />
          </font>
       </Label>
-      <TextField fx:id="nicknameTxt" alignment="CENTER" layoutX="118.0" layoutY="187.0" promptText="Ingrese un usuario">
+      <TextField fx:id="nicknameTxt" alignment="CENTER" layoutX="118.0" layoutY="187.0" promptText="Ingrese un usuario" style="-fx-background-color: #300D0D;" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="330.0">
          <font>
-            <Font name="Berlin Sans FB" size="14.0" />
+            <Font name="Sylfaen" size="18.0" />
          </font></TextField>
    </children>
 </AnchorPane>

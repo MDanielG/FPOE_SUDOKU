@@ -56,6 +56,76 @@ public class Board implements IBoard {
      * @param blockIndex the index of the current block (ranging from 0 to TOTAL_BLOCKS - 1).
      * @return true if all blocks have been successfully filled; false otherwise.
      */
+
+    @Override
+    public boolean fillBlocks(int blockIndex) {
+        // Si ya se procesaron todos los bloques, el tablero está completo.
+        if (blockIndex == TOTAL_BLOCKS) {
+            return true;
+        }
+
+        // Posición del bloque
+        int blockRow = blockIndex / TOTAL_BLOCK_COLS;
+        int blockCol = blockIndex % TOTAL_BLOCK_COLS;
+        int startRow = blockRow * BLOCK_ROWS;
+        int startCol = blockCol * BLOCK_COLS;
+
+        // Crear lista con las coordenadas de las 6 celdas del bloque
+        List<int[]> blockCells = new ArrayList<>();
+        for (int i = startRow; i < startRow + BLOCK_ROWS; i++) {
+            for (int j = startCol; j < startCol + BLOCK_COLS; j++) {
+                blockCells.add(new int[]{i, j});
+            }
+        }
+
+        // Mezclar el orden de las celdas
+        Collections.shuffle(blockCells, random);
+
+        // Seleccionar las primeras 2 celdas (las que se llenarán)
+        List<int[]> chosenCells = blockCells.subList(0, 2);
+
+        // Intentar llenar las dos celdas
+        for (int[] cell : chosenCells) {
+            int row = cell[0];
+            int col = cell[1];
+
+            // Candidatos aleatorios del 1 al 6
+            List<Integer> numbers = new ArrayList<>();
+            for (int n = 1; n <= SIZE; n++) numbers.add(n);
+            Collections.shuffle(numbers, random);
+
+            boolean placed = false;
+            for (int num : numbers) {
+                if (isValid(row, col, num)) {
+                    board.get(row).set(col, num);
+                    placed = true;
+                    break;
+                }
+            }
+
+            // Si no se pudo poner ningún número válido, retrocede
+            if (!placed) {
+                // Limpiar las celdas de este bloque antes de reintentar
+                for (int[] c : chosenCells) {
+                    board.get(c[0]).set(c[1], 0);
+                }
+                return false;
+            }
+        }
+
+        // Pasar al siguiente bloque
+        if (fillBlocks(blockIndex + 1)) {
+            return true;
+        }
+
+        // Si la recursión falla, limpiar este bloque antes de devolver falso
+        for (int[] c : chosenCells) {
+            board.get(c[0]).set(c[1], 0);
+        }
+        return false;
+    }
+
+    /*
     @Override
     public boolean fillBlocks(int blockIndex) {
         // If all blocks have been processed, the board is complete.
@@ -97,7 +167,7 @@ public class Board implements IBoard {
         // If no valid placement was found for this block, return false.
         return false;
     }
-
+*/
     /**
      * Checks whether placing a candidate number at cell (row, col) violates the row or column uniqueness.
      *
@@ -106,6 +176,42 @@ public class Board implements IBoard {
      * @param candidate the number to place (from 1 to 6).
      * @return true if the candidate can be placed without conflict; false otherwise.
      */
+    /**
+     * Checks if placing the given number at (row, col) is valid
+     * according to Sudoku rules (no repeats in row, column, or block).
+     */
+    public boolean isValid(int row, int col, int number) {
+        // 1️⃣ Verificar fila
+        for (int j = 0; j < SIZE; j++) {
+            if (board.get(row).get(j) == number) {
+                return false;
+            }
+        }
+
+        // 2️⃣ Verificar columna
+        for (int i = 0; i < SIZE; i++) {
+            if (board.get(i).get(col) == number) {
+                return false;
+            }
+        }
+
+        // 3️⃣ Verificar bloque (2x3)
+        int startRow = (row / BLOCK_ROWS) * BLOCK_ROWS;
+        int startCol = (col / BLOCK_COLS) * BLOCK_COLS;
+
+        for (int i = startRow; i < startRow + BLOCK_ROWS; i++) {
+            for (int j = startCol; j < startCol + BLOCK_COLS; j++) {
+                if (board.get(i).get(j) == number) {
+                    return false;
+                }
+            }
+        }
+
+        // Si pasa todas las validaciones, es válido
+        return true;
+    }
+
+    /*
     @Override
     public boolean isValid(int row, int col, int candidate) {
         // Check the current row for an existing occurrence of the candidate.
@@ -122,6 +228,11 @@ public class Board implements IBoard {
         }
         return true;
     }
+    */
+    /**
+     * Llena una celda vacía con un número válido al azar.
+     * Retorna true si se logró colocar un número, false si no había movimientos válidos.
+     */
 
     /**
      * Returns the generated board.

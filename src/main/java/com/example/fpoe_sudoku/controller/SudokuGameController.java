@@ -74,10 +74,20 @@ public class SudokuGameController implements Initializable {
      *
      * @param event The action event triggered by clicking the help button.
      */
+
     @FXML
-    void handleHelp(ActionEvent event) {
+    private void handleHelpButton(ActionEvent event) {
+        game.provideHint(); // simplemente llamas al método
+    }
+
+/*
+    @FXML
+    void handleHelpButton(ActionEvent event) {
         if (game != null) {
             game.provideHint();
         }
-    }
+    }*/
 }
+
+
+

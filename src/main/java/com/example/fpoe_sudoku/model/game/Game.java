@@ -82,7 +82,8 @@ public class Game extends GameAbstract {
                     textField.setText(String.valueOf(number));
                     textField.setEditable(false);
                     textField.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; " +
-                            "-fx-background-color: #e8f4f8; -fx-text-fill: #142850;");
+                            "-fx-background-color: #300D0D; -fx-text-fill: #ffffff;" +
+                            "-fx-border-color: #ffffff; -fx-border-width: 2px;");
                     preFilledCells.get(i).set(j, true);
                     currentBoard.get(i).set(j, number);
                 } else {
@@ -90,7 +91,8 @@ public class Game extends GameAbstract {
                     textField.setText("");
                     textField.setEditable(true);
                     textField.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; " +
-                            "-fx-background-color: white; -fx-text-fill: #00A8CC;");
+                            "-fx-background-color: #000000; -fx-text-fill: #ffffff;" +
+                            "-fx-border-color: #ffffff; -fx-border-width: 2px;");
                     preFilledCells.get(i).set(j, false);
                 }
 
@@ -258,8 +260,8 @@ public class Game extends GameAbstract {
      */
     private void setValidCellStyle(TextField txt) {
         txt.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; " +
-                "-fx-background-color: white; -fx-text-fill: #00A8CC; " +
-                "-fx-border-color: transparent; -fx-border-width: 2px;");
+                "-fx-background-color: #000000; -fx-text-fill: #ffffff; " +
+                "-fx-border-color: #ffffff; -fx-border-width: 2px;");
     }
 
     /**
@@ -269,7 +271,7 @@ public class Game extends GameAbstract {
      */
     private void setInvalidCellStyle(TextField txt) {
         txt.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; " +
-                "-fx-background-color: white; -fx-text-fill: #00A8CC; " +
+                "-fx-background-color: white; -fx-text-fill: #000000; " +
                 "-fx-border-color: red; -fx-border-width: 3px;");
     }
 
@@ -280,7 +282,7 @@ public class Game extends GameAbstract {
      */
     private void resetCellStyle(TextField txt) {
         txt.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; " +
-                "-fx-background-color: white; -fx-text-fill: #00A8CC;");
+                "-fx-background-color: #000000; -fx-text-fill: #ffffff;");
     }
 
     /**
@@ -365,8 +367,8 @@ public class Game extends GameAbstract {
 
                 // Highlight the hint temporarily
                 cellField.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; " +
-                        "-fx-background-color: #90EE90; -fx-text-fill: #142850; " +
-                        "-fx-border-color: #00A8CC; -fx-border-width: 3px;");
+                        "-fx-background-color: #230B2E; -fx-text-fill: #ffffff; " +
+                        "-fx-border-color: #4D285C; -fx-border-width: 3px;");
 
                 System.out.println("Hint provided: " + num + " at (" + row + ", " + col + ")");
 
