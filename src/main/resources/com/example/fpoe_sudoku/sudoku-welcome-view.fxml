@@ -28,7 +28,7 @@
             <Font name="Viner Hand ITC" size="60.0" />
          </font>
       </Label>
-      <TextField fx:id="nicknameTxt" alignment="CENTER" layoutX="118.0" layoutY="187.0" promptText="Ingrese un usuario" style="-fx-background-color: #300D0D;" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="330.0">
+        <TextField fx:id="nicknameTxt" alignment="CENTER" layoutX="118.0" layoutY="187.0" promptText="Ingrese un usuario" style="-fx-background-color: #300D0D; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #888888; -fx-font-size: 18px;" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="330.0">
          <font>
             <Font name="Sylfaen" size="18.0" />
          </font></TextField>

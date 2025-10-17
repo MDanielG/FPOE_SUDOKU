@@ -125,49 +125,6 @@ public class Board implements IBoard {
         return false;
     }
 
-    /*
-    @Override
-    public boolean fillBlocks(int blockIndex) {
-        // If all blocks have been processed, the board is complete.
-        if (blockIndex == TOTAL_BLOCKS) {
-            return true;
-        }
-
-        // Determine the block's position.
-        int blockRow = blockIndex / TOTAL_BLOCK_COLS;     // Row index of the block.
-        int blockCol = blockIndex % TOTAL_BLOCK_COLS;       // Column index of the block.
-        int startRow = blockRow * BLOCK_ROWS;
-        int startCol = blockCol * BLOCK_COLS;
-
-        // Prepare a list of candidate numbers [1, 2, 3, 4, 5, 6] in random order.
-        List<Integer> numbers = new ArrayList<>();
-        for (int i = 1; i <= SIZE; i++) {
-            numbers.add(i);
-        }
-        Collections.shuffle(numbers, random);
-
-        // Iterate over every cell in the current 2x3 block.
-        for (int i = startRow; i < startRow + BLOCK_ROWS; i++) {
-            for (int j = startCol; j < startCol + BLOCK_COLS; j++) {
-                // Try each candidate number in the randomized order.
-                for (Integer number : numbers) {
-                    // Check if placing 'number' in cell (i, j) does not violate the row and column constraints.
-                    if (isValid(i, j, number)) {
-                        board.get(i).set(j, number);
-                        // Recursively fill the next block.
-                        if (fillBlocks(blockIndex + 1)) {
-                            return true;
-                        }
-                        // Backtracking: reset the cell if subsequent placement fails.
-                        board.get(i).set(j, 0);
-                    }
-                }
-            }
-        }
-        // If no valid placement was found for this block, return false.
-        return false;
-    }
-*/
     /**
      * Checks whether placing a candidate number at cell (row, col) violates the row or column uniqueness.
      *
@@ -211,24 +168,6 @@ public class Board implements IBoard {
         return true;
     }
 
-    /*
-    @Override
-    public boolean isValid(int row, int col, int candidate) {
-        // Check the current row for an existing occurrence of the candidate.
-        for (int j = 0; j < SIZE; j++) {
-            if (board.get(row).get(j) == candidate) {
-                return false;
-            }
-        }
-        // Check the current column for an existing occurrence of the candidate.
-        for (int i = 0; i < SIZE; i++) {
-            if (board.get(i).get(col) == candidate) {
-                return false;
-            }
-        }
-        return true;
-    }
-    */
     /**
      * Llena una celda vacía con un número válido al azar.
      * Retorna true si se logró colocar un número, false si no había movimientos válidos.

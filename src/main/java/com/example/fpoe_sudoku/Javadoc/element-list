@@ -1,0 +1,8 @@
+module:com.example.demosudoku
+com.example.fpoe_sudoku
+com.example.fpoe_sudoku.controller
+com.example.fpoe_sudoku.model.board
+com.example.fpoe_sudoku.model.game
+com.example.fpoe_sudoku.model.user
+com.example.fpoe_sudoku.utils
+com.example.fpoe_sudoku.view

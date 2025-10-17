@@ -80,13 +80,6 @@ public class SudokuGameController implements Initializable {
         game.provideHint(); // simplemente llamas al método
     }
 
-/*
-    @FXML
-    void handleHelpButton(ActionEvent event) {
-        if (game != null) {
-            game.provideHint();
-        }
-    }*/
 }
 
 
